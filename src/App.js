@@ -1,31 +1,16 @@
-import { useReducer, createContext } from 'react'
+import { useReducer } from 'react'
 import './App.css'
+import { Count } from './allContext'
 import Button from './components/Button'
-
-// usereducer
-const initialState = { count: 0 }
-
-const reducer = (state, action) => {
-    switch (action.type) {
-        case 'increment':
-            return { count: state.count + 1 }
-        case 'decrement':
-            return { count: state.count - 1 }
-        case 'reset':
-            return { count: action.payload }
-        default:
-            return state
-    }
-}
-
-//createContext
-export const Count = createContext()
+import { initialState, reducer } from './reducer'
 
 const App = () => {
-    // useReducer
+    // useReducer execute reducer
     const [state, dispatch] = useReducer(reducer, initialState)
+
     return (
         <div className="App">
+            {/* wrap by context */}
             <Count.Provider value={{ state, dispatch }}>
                 <Button />
             </Count.Provider>

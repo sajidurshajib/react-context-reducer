@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import { Count } from '../App'
+import { Count } from '../allContext'
 
 const Button = () => {
     const { state, dispatch } = useContext(Count)
