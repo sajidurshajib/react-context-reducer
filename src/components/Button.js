@@ -4,7 +4,7 @@ import { Count } from '../App'
 const Button = () => {
     const { state, dispatch } = useContext(Count)
     return (
-        <div>
+        <div className="btn">
             <h3>{state.count}</h3>
             <button onClick={() => dispatch({ type: 'increment' })}>Increment</button>
             <button onClick={() => dispatch({ type: 'decrement' })}>Decrement</button>
